@@ -1,5 +1,6 @@
 package com.example.useremployee.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,8 +14,21 @@ public class User {
     private String password;
 
     @OneToOne(mappedBy = "user")
+    @JsonBackReference
     private Employee employee;
 
+
+
+
+
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 
     public void setUserID(int userID) {
         this.userID = userID;
@@ -40,11 +54,4 @@ public class User {
         return password;
     }
 
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
 }

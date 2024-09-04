@@ -1,10 +1,9 @@
 package com.example.useremployee.repositories;
 
 import com.example.useremployee.model.User;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Repository
-public class UserRepository {
-    public void save(User us1) {
-    }
+public interface UserRepository extends JpaRepository<User, Integer> {
+
+
 }
